@@ -919,6 +919,7 @@ bool process_global_keys(uint8_t k, uint8_t m, bool is_held_key) {
     }
     // <print screen>: jump to live mode
     else if (match_no_mod(m, k, HID_PRINTSCREEN) ||
+             match_no_mod(m, k, HID_SCROLL_LOCK) ||
              match_no_mod(m, k, HID_F12)) {
         if (mode != M_LIVE) { set_mode(M_LIVE); }
         return true;

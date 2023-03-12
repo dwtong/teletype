@@ -496,7 +496,9 @@ void process_live_keys(uint8_t k, uint8_t m, bool is_held_key, bool is_release,
         dirty |= D_GRID;
     }
     // A-<PrtSc>: insert coordinates / size
-    else if (!is_held_key && match_alt(m, k, HID_PRINTSCREEN) &&
+    else if (!is_held_key &&
+             (match_alt(m, k, HID_PRINTSCREEN) ||
+              match_alt(m, k, HID_SCROLL_LOCK)) &&
              sub_mode == SUB_MODE_GRID) {
         u8 area_x, area_y, area_w, area_h;
         if (grid_x1 < grid_x2) {
